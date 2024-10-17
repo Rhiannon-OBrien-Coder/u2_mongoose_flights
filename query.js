@@ -27,20 +27,30 @@ const { Airport } = require('./models')
 //   console.log(airport)
 // }
 
-const createFlight = async (addFlight) => {
-  const flight = await Flight.create(addFlight)
+// const createFlight = async (addFlight) => {
+//   const flight = await Flight.create(addFlight)
+//   console.log(flight)
+// }
+
+// const createAirport = async (addAirport) => {
+//   const airport = await Airport.create(addAirport)
+//   console.log(airport)
+// }
+
+const deleteFlight = async () => {
+  const flight = await Flight.deleteOne({ flightNumber: 'UA1234' })
   console.log(flight)
 }
 
-const createAirport = async (addAirport) => {
-  const airport = await Airport.create(addAirport)
+const deleteAirport = async () => {
+  const airport = await Airport.deleteOne({ code: 'AUS' })
   console.log(airport)
 }
 
 async function main() {
   try {
-    await createFlight()
-    await createAirport()
+    await deleteFlight()
+    await deleteAirport()
   } catch (error) {
     console.log(error)
   } finally {
