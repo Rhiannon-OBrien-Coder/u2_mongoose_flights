@@ -22,9 +22,14 @@ const findFlightById = async(id) => {
   console.log(flight)
 }
 
+const findAirportById = async(id) => {
+  const airport = await Airport.findById()
+  console.log(airport)
+}
+
 async function main() {
   try {
-    await findFlightById()
+    await findAirportById()
   } catch (error) {
     console.log(error)
   } finally {
