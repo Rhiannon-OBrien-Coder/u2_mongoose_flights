@@ -27,15 +27,27 @@ const { Airport } = require('./models')
 //   console.log(airport)
 // }
 
-// const createFlight = async (addFlight) => {
-//   const flight = await Flight.create(addFlight)
-//   console.log(flight)
-// }
+const createFlight = async () => {
+  const flight = await Flight.create({
+    airline: "Southwest Airlines",
+    flightNumber: 'WS1234',
+    price: 243,
+    numberOfSeats: 39,
+    departingAirport: orlando[0]._id, 
+    arrivalAirport: austx[0]._id, 
+    departureDateTime: "2024-10-22T22:00:00",
+  })
+  console.log(flight)
+}
 
-// const createAirport = async (addAirport) => {
-//   const airport = await Airport.create(addAirport)
-//   console.log(airport)
-// }
+const createAirport = async () => {
+  const airport = await Airport.create({
+    name: "Kansas City International Airport",
+    location: "Kansas City, Missouri",
+    code: "MCI"
+  })
+  console.log(airport)
+}
 
 // const deleteFlight = async () => {
 //   const flight = await Flight.deleteOne({ flightNumber: 'UA1234' })
@@ -57,7 +69,8 @@ const updateFlight = async () => {
 
 async function main() {
   try {
-    await updateFlight()
+    await createFlight()
+    await createAirport()
   } catch (error) {
     console.log(error)
   } finally {
