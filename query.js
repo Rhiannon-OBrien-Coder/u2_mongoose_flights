@@ -17,19 +17,30 @@ const { Airport } = require('./models')
 //   console.log(getInfo)
 // }
 
-const findFlightById = async(id) => {
-  const flight = await Flight.findById()
+// const findFlightById = async(id) => {
+//   const flight = await Flight.findById()
+//   console.log(flight)
+// }
+
+// const findAirportById = async(id) => {
+//   const airport = await Airport.findById()
+//   console.log(airport)
+// }
+
+const createFlight = async (addFlight) => {
+  const flight = await Flight.create(addFlight)
   console.log(flight)
 }
 
-const findAirportById = async(id) => {
-  const airport = await Airport.findById()
+const createAirport = async (addAirport) => {
+  const airport = await Airport.create(addAirport)
   console.log(airport)
 }
 
 async function main() {
   try {
-    await findAirportById()
+    await createFlight()
+    await createAirport()
   } catch (error) {
     console.log(error)
   } finally {
