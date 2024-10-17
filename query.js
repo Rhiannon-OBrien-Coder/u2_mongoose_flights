@@ -37,20 +37,27 @@ const { Airport } = require('./models')
 //   console.log(airport)
 // }
 
-const deleteFlight = async () => {
-  const flight = await Flight.deleteOne({ flightNumber: 'UA1234' })
-  console.log(flight)
-}
+// const deleteFlight = async () => {
+//   const flight = await Flight.deleteOne({ flightNumber: 'UA1234' })
+//   console.log(flight)
+// }
 
-const deleteAirport = async () => {
-  const airport = await Airport.deleteOne({ code: 'AUS' })
-  console.log(airport)
+// const deleteAirport = async () => {
+//   const airport = await Airport.deleteOne({ code: 'AUS' })
+//   console.log(airport)
+//}
+
+const updateFlight = async () => {
+  const updated = await Flight.updateOne(
+      { departureDateTime: "2024-10-22T19:00:00" },
+      { departureDateTime: "2024-10-22T19:30:00" }
+  )
+  console.log(updated)
 }
 
 async function main() {
   try {
-    await deleteFlight()
-    await deleteAirport()
+    await updateFlight()
   } catch (error) {
     console.log(error)
   } finally {
